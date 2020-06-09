@@ -1,0 +1,21 @@
+@charset "utf-8";
+h2{
+	font-family: Palatino Linotype;
+}
+.valor{
+	font-family: Courier New;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+	-webkit-appearance: none;
+}
+.confirmar{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	margin: auto;
+	bottom:0;
+}
+.max{
+	max-width: 100px;
+}
