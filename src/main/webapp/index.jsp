@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="dao.Conexao"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="modelo.Produto"%>
@@ -26,6 +27,7 @@
 <div class="container mb-5">
 <form class="mb-5">
 <%
+	DecimalFormat df = new DecimalFormat("#,###.00");
 	ProdutoDao dao = new ProdutoDao();
 	List<Produto> ls = dao.listar();
 	for(Produto p : ls){
@@ -50,7 +52,7 @@
 	</div>
 	<div class="row border-bottom pb-2">
 		<div class="col-6 valor">
-			R$ <%= p.getValor() %>
+			R$ <%= df.format(p.getValor()) %>
 		</div>
 		<div class="col-6 valor">
 		</div>
@@ -60,6 +62,9 @@
 %>
 </form>
 </div>
-<button id="bt-confirmar" name="submit" type="submit" class="btn btn-success confirmar" disabled="disabled">Confirmar <span id="vl-span">R$ 0.00</span></button>
+<button id="bt-confirmar" name="submit" type="submit" class="btn btn-success confirmar" disabled="disabled" onclick="enviar()">
+	Confirmar 
+	<span id="vl-span">R$ 0,00</span>
+</button>
 </body>
 </html>

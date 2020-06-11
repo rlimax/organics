@@ -10,6 +10,9 @@ import modelo.Produto;
 public class ProdutoDao {
 	public List<Produto> listar(){
 		List<Produto> ls = new ArrayList<Produto>();
+		 
+
+		//df.format(1234.36); 
 		try {
 			Connection con = Conexao.getConectar();
 			PreparedStatement sql = con.prepareStatement("select * from produto");

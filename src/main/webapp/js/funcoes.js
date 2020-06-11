@@ -10,7 +10,7 @@ function atualizar(id, vl){
 			"total":total
 	}
 	lsItens[id] = obj;
-	console.log(obj);
+	//console.log(obj);
 	vlTotal();
 }
 
@@ -20,10 +20,26 @@ function vlTotal(){
 		obj = lsItens[i];
 		vlFinal += obj.total;
 	}
-	document.getElementById('vl-span').innerHTML = "R$"+vlFinal.toFixed(2);
+	document.getElementById('vl-span').innerHTML = "R$"+String(vlFinal.toFixed(2)).replace(".",",");
 	if(vlFinal>0){
 		document.getElementById('bt-confirmar').removeAttribute("disabled");
 	}else{
 		document.getElementById('bt-confirmar').setAttribute("disabled","disabled");
 	}
 }
+
+function enviar(){
+	var xmlhttp = new XMLHttpRequest();
+	var url = "listaItem";
+	xmlhttp.open("POST",url);
+	xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+	xmlhttp.send(JSON.stringify(lsItens));
+}
+
+
+
+
+
+
+
+
