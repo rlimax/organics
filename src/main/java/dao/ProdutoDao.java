@@ -15,12 +15,12 @@ public class ProdutoDao {
 		//df.format(1234.36); 
 		try {
 			Connection con = Conexao.getConectar();
-			PreparedStatement sql = con.prepareStatement("select * from produto");
+			PreparedStatement sql = con.prepareStatement("select id_produto, nm_produto, vl_produto from produto");
 			ResultSet resultado = sql.executeQuery();
 			while(resultado.next()) {
 				Produto p = new Produto();
 				p.setId(resultado.getInt("id_produto"));
-				p.setCategoria(resultado.getInt("id_categoria_fk"));
+				//p.setCategoria(resultado.getInt("id_categoria_fk"));
 				p.setNome(resultado.getString("nm_produto"));
 				p.setValor(resultado.getFloat("vl_produto"));
 				ls.add(p);

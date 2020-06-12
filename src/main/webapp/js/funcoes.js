@@ -30,10 +30,19 @@ function vlTotal(){
 
 function enviar(){
 	var xmlhttp = new XMLHttpRequest();
+
+	xmlhttp.overrideMimeType("text/html");
+	xmlhttp.onreadystatechange = function(){
+		if((this.readyState== 4)&&(this.status==200)){
+			location.replace(this.responseText);
+		}
+	}
+	
 	var url = "listaItem";
 	xmlhttp.open("POST",url);
 	xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	xmlhttp.send(JSON.stringify(lsItens));
+	console.log(xmlhttp);
 }
 
 
