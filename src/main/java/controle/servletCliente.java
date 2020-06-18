@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelo.Cliente;
 
@@ -21,5 +22,10 @@ public class servletCliente extends HttpServlet{
 		cliente.setTelefone(req.getParameter("telefone"));
 		cliente.setEndereco(req.getParameter("endereco")+" - "+req.getParameter("cidade"));
 		System.out.print(cliente.toString());
+		
+		HttpSession sessao = req.getSession();
+		sessao.setAttribute("ObjCliente", cliente);
+		
+		resp.sendRedirect("concluir-pedido.jsp");
 	}
 }

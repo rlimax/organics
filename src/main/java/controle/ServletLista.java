@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
+import dao.ProdutoDao;
+import modelo.ListaProduto;
+
 @WebServlet(urlPatterns = "/listaItem")
 public class ServletLista extends HttpServlet{
 
@@ -26,12 +31,29 @@ public class ServletLista extends HttpServlet{
 			}
 
 		} catch (Exception e) {
-			System.out.print("Erro.");
+			System.out.print("Erro no tratamento da string de origem Javascript.");
 		}
-		System.out.print(sb.toString().replace("null,", ""));
+		
+		String sgListaProduto = sb.toString().replace("null,", "").replace("\"id\"", "\"idProduto\""); 
+		//System.out.println(sb.toString().replace("null,", "").replace("\"id\"", "\"idProduto\""));
+		
+		
 		HttpSession sessao = req.getSession();
-		sessao.setAttribute("list-item-json", sb.toString().replace("null,", ""));
-		out.print("form-cliente.jsp");		
+		sessao.setAttribute("list-item-json", sgListaProduto);
+		
+		Gson gson = new Gson();
+		ListaProduto[] lsProduto;
+		lsProduto = gson.fromJson(sgListaProduto, ListaProduto[].class);
+		
+		ProdutoDao dao = new ProdutoDao();
+		for(ListaProduto item : lsProduto) {
+			item.setProduto(dao.listarId(item.getIdProduto()));
+			System.out.println(item);
+		}
+		
+		sessao.setAttribute("lsProduto", lsProduto);
+
+		out.print("form-cliente.jsp");
 	}
 	
 }
