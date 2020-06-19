@@ -55,7 +55,9 @@
 				out.println("<tr class=\"bg-info text-white\">");
 				out.println("<td colspan='2'>Total do pedido</td>");
 				out.println("<td class=\"font-weight-bold\"> R$ "+df.format(pedido.getTotalPedido())+"</td>");
-				out.println("</tr>");		
+				out.println("</tr>");	
+				
+				sessao.setAttribute("pedido", pedido);
 			%>
 		</table>
 		Dados de entrega:
@@ -63,8 +65,10 @@
 			out.println("<br/> Endereco: "+cliente.getEndereco());
 		%>
 	</div>
-	<button id="bt-concluir-ped" name="submit" type="submit" class="btn btn-success confirmar" onclick="">
-		Confirmar 
-	</button>
+	<form action="ServletPedido" method="post">
+		<button id="bt-concluir-ped" name="submit" type="submit" class="btn btn-success confirmar" onclick="">
+			Confirmar 
+		</button>
+	</form>
 </body>
 </html>
