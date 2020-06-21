@@ -29,7 +29,7 @@
 
 			DecimalFormat df = new DecimalFormat("#,###.00");
 			HttpSession sessao = request.getSession();
-			Cliente cliente = (Cliente) sessao.getAttribute("ObjCliente");
+			Cliente cliente = (Cliente) sessao.getAttribute("objCliente");
 			out.println("Cliente: "+cliente.getNome());
 			ListaProduto[] lsProduto = (ListaProduto[]) sessao.getAttribute("lsProduto");
 		%>
@@ -57,7 +57,7 @@
 				out.println("<td class=\"font-weight-bold\"> R$ "+df.format(pedido.getTotalPedido())+"</td>");
 				out.println("</tr>");	
 				
-				sessao.setAttribute("pedido", pedido);
+				sessao.setAttribute("objPedido", pedido);
 			%>
 		</table>
 		Dados de entrega:

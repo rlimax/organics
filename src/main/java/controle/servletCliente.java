@@ -24,7 +24,7 @@ public class servletCliente extends HttpServlet{
 		System.out.print(cliente.toString());
 		
 		HttpSession sessao = req.getSession();
-		sessao.setAttribute("ObjCliente", cliente);
+		sessao.setAttribute("objCliente", cliente);
 		
 		resp.sendRedirect("concluir-pedido.jsp");
 	}
