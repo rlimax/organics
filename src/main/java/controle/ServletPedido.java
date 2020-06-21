@@ -1,6 +1,8 @@
 package controle;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 import javax.servlet.ServletException;
@@ -38,10 +40,17 @@ public class ServletPedido extends HttpServlet{
 		
 		ListaProduto[] lsProduto = (ListaProduto[]) sessao.getAttribute("lsProduto");
 		ListaProdutoDao daoListaP = new ListaProdutoDao();
+		String lsItem = "";
 		for(ListaProduto item: lsProduto) {
 			item.setIdPedido(pedido.getId());
 			daoListaP.incluir(item);
+			lsItem += "\n"+item.getProduto().getNome()+"|"+item.getQuantidade()+"|"+item.getTotal();
 		}
+		String fone = "5561985529838";
+		String msg = "O cliente "+cliente.getNome()+"\nFez um pedido de número: "+ pedido.getId()+"\nProduto|Qtd |Total "+lsItem+"\nPara ser entregue em "+cliente.getEndereco();
+		
+		msg = URLEncoder.encode(msg, StandardCharsets.UTF_8.toString());
+		resp.sendRedirect("https://api.whatsapp.com/send?phone="+fone+"&text="+msg);
 	}
 
 }
