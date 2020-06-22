@@ -26,7 +26,8 @@ public class ClienteDao {
 				conexao.close();
 				
 			} catch (Exception e) {
-				System.out.println("Erro ao incluir cliente.");
+				//System.out.println("Erro ao incluir cliente.");
+				e.printStackTrace();
 		}
 	}
 	

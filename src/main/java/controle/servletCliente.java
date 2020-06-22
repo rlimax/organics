@@ -21,7 +21,7 @@ public class servletCliente extends HttpServlet{
 		cliente.setNome(req.getParameter("nome"));
 		cliente.setTelefone(req.getParameter("telefone"));
 		cliente.setEndereco(req.getParameter("endereco")+" - "+req.getParameter("cidade"));
-		System.out.print(cliente.toString());
+		//System.out.print(cliente.toString());
 		
 		HttpSession sessao = req.getSession();
 		sessao.setAttribute("objCliente", cliente);

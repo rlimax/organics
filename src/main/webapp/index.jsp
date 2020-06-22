@@ -73,20 +73,4 @@
 	<span id="vl-span">R$ 0,00</span>
 </button>
 </body>
-<script>
-	function selecao(){
-		i = document.querySelectorAll(".cc");
-		console.log(i);
-		for(x=0; x<i.length; x++){
-			console.log(i[x].id);
-			if(document.getElementById(i[x].id).value>0){
-				document.getElementById(i[x].id.replace("prd","lin")).style.backgroundColor="rgba(0,255,0,.1)";
-				console.log(document.getElementById(i[x].id.replace("prd","lin"))+"yellow");
-			}else{
-				document.getElementById(i[x].id.replace("prd","lin")).style.backgroundColor="white";
-				console.log(document.getElementById(i[x].id.replace("prd","lin"))+"white");
-			}
-		}
-	}
-</script>
 </html>

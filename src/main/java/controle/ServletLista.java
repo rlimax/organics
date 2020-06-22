@@ -33,11 +33,10 @@ public class ServletLista extends HttpServlet{
 		} catch (Exception e) {
 			System.out.print("Erro no tratamento da string de origem Javascript.");
 		}
-		
-		String sgListaProduto = sb.toString().replace("null,", "").replace("\"id\"", "\"idProduto\""); 
 		//System.out.println(sb.toString().replace("null,", "").replace("\"id\"", "\"idProduto\""));
-		
-		
+		String sgListaProduto = sb.toString().replace("null,", "").replace("\"id\"", "\"idProduto\"").replace(",null", ""); 
+		//System.out.println(sb.toString());
+				
 		HttpSession sessao = req.getSession();
 		sessao.setAttribute("list-item-json", sgListaProduto);
 		
@@ -48,7 +47,7 @@ public class ServletLista extends HttpServlet{
 		ProdutoDao dao = new ProdutoDao();
 		for(ListaProduto item : lsProduto) {
 			item.setProduto(dao.listarId(item.getIdProduto()));
-			System.out.println(item);
+			//System.out.println(item);
 		}
 		
 		sessao.setAttribute("lsProduto", lsProduto);

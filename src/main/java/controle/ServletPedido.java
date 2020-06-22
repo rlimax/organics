@@ -47,7 +47,7 @@ public class ServletPedido extends HttpServlet{
 			daoListaP.incluir(item);
 			lsItem += "\n"+item.getProduto().getNome()+"|"+item.getQuantidade()+"|"+item.getTotal();
 		}
-		String fone = "5561985529838";
+		String fone = "556100000000";
 		String msg = "O cliente "+cliente.getNome()+"\nFez um pedido de número: "+ pedido.getId()+"\nProduto|Qtd |Total "+lsItem+"\nPara ser entregue em "+cliente.getEndereco();
 		
 		msg = URLEncoder.encode(msg, StandardCharsets.UTF_8.toString());
