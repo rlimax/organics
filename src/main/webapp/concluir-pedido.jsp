@@ -23,7 +23,9 @@
 
 </head>
 <body>
-	<h2 class="bg-success p-4 mb-3 text-white text-center">Cardápio</h2>
+	<div class="salada">
+		<h2 class="p-4 mb-3 text-white text-center">Cardápio</h2>
+	</div>
 	<div class="container mb-4">
 		<%
 
@@ -38,9 +40,11 @@
 	<br/>
 		<table class="table table-striped">
 			<thead>
-				<th>Produto</th>
-				<th>Quantidade</th>
-				<th>Subtotal</th>
+				<tr>
+					<th>Produto</th>
+					<th>Quantidade</th>
+					<th>Subtotal</th>
+				<tr>
 			</thead>
 			<%
 				Pedido pedido = new Pedido();
@@ -62,7 +66,7 @@
 		</table>
 		Dados de entrega:
 		<%
-			out.println("<br/> Endereco: "+cliente.getEndereco());
+			out.println("<br/> Endereco: "+cliente.getEndereco()+"<br/><br/><br/><br/><br/>");
 		%>
 	</div>
 	<form action="ServletPedido" method="post">

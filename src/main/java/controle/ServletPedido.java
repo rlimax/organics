@@ -30,7 +30,7 @@ public class ServletPedido extends HttpServlet{
 		HttpSession sessao = req.getSession();
 		Cliente cliente = (Cliente) sessao.getAttribute("objCliente");
 		daoCliente.incluir(cliente);
-		
+		//2 - gravar pedido no BD		
 		Pedido pedido = (Pedido) sessao.getAttribute("objPedido");
 		pedido.setCliente(cliente);
 		pedido.setDataPedido(LocalDate.now());
@@ -38,6 +38,7 @@ public class ServletPedido extends HttpServlet{
 		PedidoDao daoPedido = new PedidoDao();
 		daoPedido.incluir(pedido);
 		
+		//3 - gravar lista de produtos do pedido no BD
 		ListaProduto[] lsProduto = (ListaProduto[]) sessao.getAttribute("lsProduto");
 		ListaProdutoDao daoListaP = new ListaProdutoDao();
 		String lsItem = "";
@@ -47,7 +48,7 @@ public class ServletPedido extends HttpServlet{
 			lsItem += "\n"+item.getProduto().getNome()+"|"+item.getQuantidade()+"|"+item.getTotal();
 		}
 		String fone = "5561985529838";
-		String msg = "O cliente "+cliente.getNome()+"\nFez um pedido de número: "+ pedido.getId()+"\nProduto|Qtd |Total "+lsItem+"\nPara ser entregue em "+cliente.getEndereco();
+		String msg = "O cliente "+cliente.getNome()+"\nFez um pedido de nÃºmero: "+ pedido.getId()+"\nProduto|Qtd |Total "+lsItem+"\nPara ser entregue em "+cliente.getEndereco();
 		
 		msg = URLEncoder.encode(msg, StandardCharsets.UTF_8.toString());
 		resp.sendRedirect("https://api.whatsapp.com/send?phone="+fone+"&text="+msg);

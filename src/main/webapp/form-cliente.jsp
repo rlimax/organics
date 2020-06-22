@@ -17,7 +17,9 @@
 
 </head>
 <body>
-<h2 class="bg-success p-4 mb-3 text-white text-center">Cardápio</h2>
+<div class="salada">
+	<h2 class="p-4 mb-3 text-white text-center">Cardápio</h2>
+</div>
 <form method="post" action="servletCliente">
 	<div class="container mb-5">
 		<div class="form-group row pt-2">

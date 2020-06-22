@@ -22,6 +22,8 @@ public class ClienteDao {
 				ResultSet resultado = sql.getGeneratedKeys();
 				resultado.next();
 				cliente.setId(resultado.getInt(1));
+				sql.close();
+				conexao.close();
 				
 			} catch (Exception e) {
 				System.out.println("Erro ao incluir cliente.");

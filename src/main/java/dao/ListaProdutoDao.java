@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 import modelo.ListaProduto;
 
@@ -24,7 +23,8 @@ public class ListaProdutoDao {
 				ResultSet resultado = sql.getGeneratedKeys();
 				resultado.next();
 //				pedido.setId(resultado.getInt(1));
-				
+				sql.close();
+				conexao.close();
 			} catch (Exception e) {
 				System.out.println("Erro ao incluir cliente.");
 		}

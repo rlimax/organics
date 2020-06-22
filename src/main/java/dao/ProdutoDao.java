@@ -25,6 +25,8 @@ public class ProdutoDao {
 				p.setValor(resultado.getFloat("vl_produto"));
 				ls.add(p);
 			}
+			sql.close();
+			con.close();
 		} catch (Exception e) {
 			System.out.println("Erro Listar Produtos");
 		}
@@ -45,6 +47,8 @@ public class ProdutoDao {
 				p.setNome(resultado.getString("nm_produto"));
 				p.setValor(resultado.getFloat("vl_produto"));
 			}
+			sql.close();
+			con.close();
 		} catch (Exception e) {
 			System.out.println("Erro Listar ID");
 		}

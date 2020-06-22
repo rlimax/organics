@@ -23,7 +23,11 @@
 
 </head>
 <body>
-<h2 class="bg-success p-4 mb-3 text-white text-center">Cardápio</h2>
+<div class="salada">
+	<h2 class="p-4 mb-3 text-white text-center">CARDÁPIO</h2>
+</div>
+
+
 <div class="container mb-5">
 <form class="mb-5">
 <%
@@ -32,17 +36,18 @@
 	List<Produto> ls = dao.listar();
 	for(Produto p : ls){
 %>
+<div id="lin-<%= p.getId() %>" class="p-3 border-bottom">
  	<div class="form-group row pt-2">
 		<label for="prd-<%= p.getId() %>" class="col-6 col-form-label"><%= p.getNome() %></label>
 		<div class="col-6">
 			<div class="input-group">
-				<div class="input-group-append" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); atualizar('prd-<%= p.getId() %>',<%= p.getValor() %>);">
+				<div class="input-group-append" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); atualizar('prd-<%= p.getId() %>',<%= p.getValor() %>); selecao();">
 					<div class="input-group-text">
 						<i class="fa fa-angle-down"></i>
 					</div>
 				</div>
-				<input id="prd-<%= p.getId() %>" name="prd-<%= p.getId() %>" type="number" class="form-control text-center" min="0" value="0">
-				<div class="input-group-prepend" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); atualizar('prd-<%= p.getId() %>',<%= p.getValor() %>);">
+				<input id="prd-<%= p.getId() %>" name="prd-<%= p.getId() %>" type="number" class="form-control text-center cc" min="0" value="0">
+				<div class="input-group-prepend" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); atualizar('prd-<%= p.getId() %>',<%= p.getValor() %>); selecao();">
 					<div class="input-group-text">
 						<i class="fa fa-angle-up"></i>
 					</div>
@@ -50,13 +55,14 @@
 			</div>
 		</div>
 	</div>
-	<div class="row border-bottom pb-2">
+	<div class="row pb-2">
 		<div class="col-6 valor">
 			R$ <%= df.format(p.getValor()) %>
 		</div>
 		<div class="col-6 valor">
 		</div>
 	</div>
+</div>
 <%
 	}
 %>
@@ -67,4 +73,20 @@
 	<span id="vl-span">R$ 0,00</span>
 </button>
 </body>
+<script>
+	function selecao(){
+		i = document.querySelectorAll(".cc");
+		console.log(i);
+		for(x=0; x<i.length; x++){
+			console.log(i[x].id);
+			if(document.getElementById(i[x].id).value>0){
+				document.getElementById(i[x].id.replace("prd","lin")).style.backgroundColor="rgba(0,255,0,.1)";
+				console.log(document.getElementById(i[x].id.replace("prd","lin"))+"yellow");
+			}else{
+				document.getElementById(i[x].id.replace("prd","lin")).style.backgroundColor="white";
+				console.log(document.getElementById(i[x].id.replace("prd","lin"))+"white");
+			}
+		}
+	}
+</script>
 </html>
