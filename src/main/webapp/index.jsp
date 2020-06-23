@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="./css/estilo.css">
 
 </head>
-<body>
+<body onresize="ajuste()">
 <div class="salada">
 	<h2 class="p-4 mb-3 text-white text-center">CARDÁPIO</h2>
 </div>
@@ -68,9 +68,10 @@
 %>
 </form>
 </div>
-<button id="bt-confirmar" name="submit" type="submit" class="btn btn-success confirmar" disabled="disabled" onclick="enviar()">
+<button id="bt-confirmar" name="submit" type="submit" class="btn btn-success confirmar" disabled="disabled" onclick="enviar(); tam();">
 	Confirmar 
 	<span id="vl-span">R$ 0,00</span>
 </button>
+<div id="screen" class="tela"><img class="rounded-circle mt-5" src="./img/loader.gif"></div>
 </body>
 </html>

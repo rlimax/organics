@@ -65,3 +65,20 @@ function selecao(){
 		//console.log(lsItens[x]);
 	}
 }
+
+
+
+function ajuste(){
+	tela = document.getElementById("screen");
+	y = innerHeight;
+	x = innerWidth;
+	tela.style.width = x-17+"px";
+	tela.style.height = y+"px";
+	console.log("largura :"+x);
+	console.log("altura :"+y);
+}
+function tam(){
+	ajuste();
+	tela.style.display="block";	
+}
+

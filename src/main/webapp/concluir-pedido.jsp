@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="./css/estilo.css">
 
 </head>
-<body>
+<body onresize="ajuste()">
 	<div class="salada">
 		<h2 class="p-4 mb-3 text-white text-center">Cardápio</h2>
 	</div>
@@ -70,9 +70,10 @@
 		%>
 	</div>
 	<form action="ServletPedido" method="post">
-		<button id="bt-concluir-ped" name="submit" type="submit" class="btn btn-success confirmar" onclick="">
+		<button id="bt-concluir-ped" name="submit" type="submit" class="btn btn-success confirmar" onclick="tam();">
 			Confirmar 
 		</button>
 	</form>
+<div id="screen" class="tela"><img class="rounded-circle mt-5" src="./img/loader.gif"></div>
 </body>
 </html>
