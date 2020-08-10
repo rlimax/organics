@@ -72,6 +72,6 @@
 	Confirmar 
 	<span id="vl-span">R$ 0,00</span>
 </button>
-<div id="screen" class="tela"><img class="rounded-circle mt-5" src="./img/loader.gif"></div>
+<div id="screen" class="tela"><img class="rounded-circle mt-5 load" src="./img/loader.gif"></div>
 </body>
 </html>

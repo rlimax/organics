@@ -1,5 +1,5 @@
 --INSERT DE CATEGORIAS
-insert into categoria (nm_categoria) values ('HORTALI√áAS E LEGUMES');
+insert into categoria (nm_categoria) values ('HORTALI«AS E LEGUMES');
 insert into categoria (nm_categoria) values ('FRUTAS');
 insert into categoria (nm_categoria) values ('ERVAS E TEMPEROS');
 insert into categoria (nm_categoria) values ('DIVERSOS');
@@ -7,13 +7,13 @@ insert into categoria (nm_categoria) values ('DIVERSOS');
 
 
 --INSERT DE PRODUTOS
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alface America P√©',3.90);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alface Crespa P√©',3.90);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alho Por√≥ 300g',6.00);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Ab√≥bora 500g',5.50);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Ab√≥bora KG',9.80);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Abobrinha It√°lia 500',7.00);
-insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Abobrinha It√°lia KG',13.00);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alface America PÈ',3.90);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alface Crespa PÈ',3.90);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Alho PorÛ 300g',6.00);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'AbÛbora 500g',5.50);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'AbÛbora KG',9.80);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Abobrinha It·lia 500',7.00);
+insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Abobrinha It·lia KG',13.00);
 insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Batata Inglesa 500g',8.50);
 insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Batata Inglesa KG',16.00);
 insert into produto(id_categoria_fk, nm_produto, vl_produto) values (1,'Batata Doce 500g',5.50);

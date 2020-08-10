@@ -86,6 +86,6 @@
 		Continuar 
 	</button>
 </form>
-<div id="screen" class="tela"><img class="rounded-circle mt-5" src="./img/loader.gif"></div>
+<div id="screen" class="tela"><img class="rounded-circle mt-5 load" src="./img/loader.gif"></div>
 </body>
 </html>

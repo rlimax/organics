@@ -72,13 +72,14 @@ function ajuste(){
 	tela = document.getElementById("screen");
 	y = innerHeight;
 	x = innerWidth;
-	tela.style.width = x-17+"px";
+	tela.style.width = x+"px";
 	tela.style.height = y+"px";
 	console.log("largura :"+x);
 	console.log("altura :"+y);
 }
 function tam(){
 	ajuste();
-	tela.style.display="block";	
+	tela.style.display="block";
+	document.body.style.overflowY = "hidden";
 }
 
