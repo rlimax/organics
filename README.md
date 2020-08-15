@@ -9,5 +9,5 @@ Aplicação para pedido de produtos orgânicos.
   <li>HTML</li>
   <li>CSS</li>
   <li>Maven</li>
-  <li>MySQL</li>
+  <li>MySQL in Google Cloud</li>
 </ul>
